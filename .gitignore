@@ -1,25 +1,41 @@
+# 🔹 Исключаем скомпилированные файлы и папки сборки (Maven, Gradle)
 target/
+build/
+out/
+
+# 🔹 Оставляем файл Maven Wrapper
 !.mvn/wrapper/maven-wrapper.jar
+
+# 🔹 Исключаем папки target внутри src/main и src/test, но НЕ сами src
 !**/src/main/**/target/
 !**/src/test/**/target/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# ==========================================
+# 🔹 Игнорируем настройки IDE и редакторов
+# ==========================================
 
 ### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Файлы, связанные с зависимостями и компилятором
 .idea/modules.xml
 .idea/jarRepositories.xml
 .idea/compiler.xml
 .idea/libraries/
-*.iws
-*.iml
-*.ipr
 
 ### Eclipse ###
 .apt_generated
 .classpath
 .factorypath
 .project
-.settings
-.springBeans
-.sts4-cache
+.settings/
+.springBeans/
+.sts4-cache/
 
 ### NetBeans ###
 /nbproject/private/
@@ -27,12 +43,44 @@ target/
 /dist/
 /nbdist/
 /.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
 
 ### VS Code ###
 .vscode/
 
+# ==========================================
+# 🔹 Исключаем системные файлы ОС
+# ==========================================
+
 ### Mac OS ###
 .DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+### Windows ###
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ==========================================
+# 🔹 Исключаем файлы логов, отладочные файлы и кэш
+# ==========================================
+
+# Логи системы и отладки
+*.log
+logs/
+*.pid
+hs_err_pid*
+
+# Файлы, создаваемые отладчиком
+*.stackdump
+
+# Исключаем файлы паролей и конфигурации пользователей
+*.env
+*.config
+*.properties
+*.credentials
+
+# Исключаем файлы, создаваемые при работе с Git
+.git/
+.gitignore.swp
